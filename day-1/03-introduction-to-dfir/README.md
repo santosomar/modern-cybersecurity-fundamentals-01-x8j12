@@ -10,6 +10,14 @@ Incident Response (IR) is a structured, methodological approach to addressing an
 
 The **NIST Incident Response Life Cycle (SP 800-61 Rev 2)** is arguably the most recognized framework globally, containing four primary phases:
 
+```mermaid
+graph TD
+    A[Preparation] --> B[Detection & Analysis]
+    B --> C[Containment, Eradication, & Recovery]
+    C --> D[Post-Incident Activity]
+    D -.->|Lessons Learned| A
+```
+
 1. **Preparation**:
     - Occurs *before* an incident happens. 
     - Establishing an Incident Response Plan (IRP), ensuring security tools (EDR, SIEM) have visibility, creating communication plans, training employees, and running tabletop exercises.
@@ -35,6 +43,14 @@ A CSIRT (often used interchangeably with CERT—Computer Emergency Response Team
 
 ### PSIRT (Product Security Incident Response Team)
 Unlike a CSIRT which protects the *company's* internal network, a PSIRT protects the *products* the company sells to external customers. For example, if Cisco discovers a vulnerability in one of their routers, the Cisco PSIRT handles the investigation, triage, patching, and public disclosure (CVE issuance) of that vulnerability.
+
+```mermaid
+graph LR
+    subgraph Organization
+        CSIRT -->|Protects| Internal[Internal Network & Systems]
+        PSIRT -->|Protects| External[External Products & Customers]
+    end
+```
 
 ---
 
@@ -79,6 +95,20 @@ When collecting evidence, responders must always gather the most volatile data f
     6. Remote logging and monitoring data
     7. Physical configuration and network topology
     8. Archival media (Backups / CDs)
+
+```mermaid
+graph TD
+    A[1. CPU Registers & Cache] --> B[2. Network State / ARP / Process Tables]
+    B --> C[3. Main Memory / RAM]
+    C --> D[4. Temporary File Systems]
+    D --> E[5. Local Hard Drives / Disk]
+    E --> F[6. Remote Logging Data]
+    F --> G[7. Physical Config & Topology]
+    G --> H[8. Archival Media & Backups]
+    
+    style A fill:#ffcccc,stroke:#333,stroke-width:1px
+    style H fill:#ccffcc,stroke:#333,stroke-width:1px
+```
 
 To collect disk data safely without altering it, forensic investigators utilize **Write Blockers** (hardware or software that prevents data from being written to a suspect drive) and perform **Bit-for-Bit Imaging** rather than standard file copying.
 

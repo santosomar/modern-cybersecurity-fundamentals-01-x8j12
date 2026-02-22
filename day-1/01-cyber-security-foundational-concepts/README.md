@@ -28,6 +28,22 @@ An **exploit** is the *act* or a piece of software, a chunk of data, or a sequen
 - **Formula**: `Risk = Threat × Vulnerability × Impact`
 - **Mitigation**: Security teams must identify risks and decide whether to **Accept** it (too costly to fix), **Avoid** it (stop using the vulnerable system), **Transfer** it (buy insurance), or **Mitigate** it (apply patches/buy security controls).
 
+```mermaid
+flowchart TD
+    T[Threats\ne.g., Hackers, Natural Disasters] -->|Attempts to Exploit| V(Vulnerabilities\ne.g., Unpatched Software, Human Error)
+    V -->|Leading to| I[Impact\ne.g., Data Loss, Financial Cost]
+    
+    T -.-> R{Risk\nIntersection of T, V, I}
+    V -.-> R
+    I -.-> R
+    
+    R -->|Treated by| M[Risk Management]
+    M --> Accept[Accept: Too costly to fix]
+    M --> Avoid[Avoid: Stop using system]
+    M --> Transfer[Transfer: Buy insurance]
+    M --> Mitigate[Mitigate: Apply controls]
+```
+
 ---
 
 ## 2. Understanding Defense-in-Depth
@@ -44,6 +60,19 @@ No security control is perfect, but by overlapping layers, an attacker who bypas
 5.  **Perimeter/Physical Layer**: Security guards, biometric locks, surveillance cameras.
 6.  **Human Layer**: Security awareness training, acceptable use policies, phishing simulations.
 
+```mermaid
+flowchart TD
+    Attacker((Attacker)) --> Human[Human Layer\nPolicies, Training]
+    Human --> Physical[Physical Layer\nGuards, Locks]
+    Physical --> Network[Network Layer\nFirewalls, IPS]
+    Network --> Endpoint[Host/Endpoint Layer\nEDR, AV]
+    Endpoint --> App[Application Layer\nWAF, SAST/DAST]
+    App --> Data[(Data Layer\nEncryption, DLP)]
+    
+    style Attacker fill:#ffcccc,stroke:#ff0000,stroke-width:2px
+    style Data fill:#ccffcc,stroke:#00aa00,stroke-width:2px
+```
+
 ---
 
 ## 3. Attacker Tactics, Techniques, and Procedures (TTPs)
@@ -54,6 +83,16 @@ To defend a network, you must understand how attackers operate. **TTPs** refer t
 - **Techniques**: How the adversary achieves the tactical objective (e.g., Phishing is a technique to achieve Initial Access).
 - **Procedures**: The exact, step-by-step methodology an adversary uses, including specific tools and command lines (e.g., using `Empire` or `Cobalt Strike` to deliver a malicious Word macro payload).
 
+```mermaid
+flowchart TD
+    Tactics["Tactics\n(Highest Level: 'Why')\ne.g., Initial Access"] --> Techniques["Techniques\n(Mid Level: 'How')\ne.g., Phishing"]
+    Techniques --> Procedures["Procedures\n(Lowest Level: 'Exact Steps')\ne.g., Sending email with malicious Word macro"]
+    
+    style Tactics fill:#e1f5fe,stroke:#0288d1
+    style Techniques fill:#b3e5fc,stroke:#0288d1
+    style Procedures fill:#81d4fa,stroke:#0288d1
+```
+
 **Framework Note**: The best resource for tracking and defending against TTPs is the **MITRE ATT&CK Framework**, a globally accessible knowledge base of adversary tactics and techniques based on real-world observations.
 
 ---
@@ -61,6 +100,23 @@ To defend a network, you must understand how attackers operate. **TTPs** refer t
 ## 4. The CIA Triad in Real-Life
 
 The **CIA Triad** is the foundation of information security and forms the basis on which entire security programs are built. Every control, tool, and policy is aimed at protecting one or more of these three principles:
+
+```mermaid
+mindmap
+  root((CIA Triad))
+    Confidentiality
+      Encryption
+      Access Controls
+      MFA
+    Integrity
+      Hashing
+      Digital Signatures
+      File Integrity Monitoring
+    Availability
+      Load Balancing
+      Redundancies
+      Backups
+```
 
 ### Confidentiality
 Ensuring that data is accessible *only* to authorized individuals, entities, or processes.

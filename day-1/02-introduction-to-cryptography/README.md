@@ -12,6 +12,18 @@ There are two primary categories of encryption:
 
 ### Symmetric Cryptography
 Symmetric encryption uses a **single shared key** for both encryption and decryption. Both the sender and the receiver must securely exchange and possess the same exact key beforehand. 
+
+```mermaid
+sequenceDiagram
+    participant Sender
+    participant Receiver
+    Note over Sender,Receiver: Shared Key must be securely exchanged beforehand
+    Sender->>Sender: Encrypt Plaintext with Shared Key
+    Sender->>Receiver: Transmit Ciphertext over untrusted network
+    Receiver->>Receiver: Decrypt Ciphertext with Shared Key
+    Note over Receiver: Recovered Plaintext
+```
+
 - **Pros**: Fast, highly efficient, well-suited for bulk data processing (such as encrypting a full hard drive or a large file).
 - **Cons**: The "Key Distribution Problem"—how do you securely send the key to the recipient over an untrusted network? Furthermore, symmetric encryption does not provide non-repudiation because possessing the key proves neither the sender's identity nor the receiver's.
 - **Common Algorithms**: 
@@ -21,6 +33,19 @@ Symmetric encryption uses a **single shared key** for both encryption and decryp
 
 ### Asymmetric Cryptography (Public Key Cryptography)
 Asymmetric encryption solves the Key Distribution Problem by using a **pair of keys**—a Public Key and a mathematically related Private Key. What one key encrypts, *only* the other key can decrypt.
+
+```mermaid
+sequenceDiagram
+    participant Sender
+    participant Receiver
+    Note over Receiver: Generates Public and Private Key Pair
+    Receiver->>Sender: Distribute Public Key (Publicly known)
+    Sender->>Sender: Encrypt Plaintext with Receiver's Public Key
+    Sender->>Receiver: Transmit Ciphertext over untrusted network
+    Receiver->>Receiver: Decrypt Ciphertext using strictly Private Key
+    Note over Receiver: Recovered Plaintext
+```
+
 - **The Concept**: The sender obtains the receiver’s Public Key (which is freely distributed) to encrypt the message. The receiver uses their mathematically linked, secret Private Key to decrypt it. 
 - **Pros**: Solves key space distribution challenges, provides non-repudiation, and enables digital signatures. 
 - **Cons**: Computationally expensive and significantly slower than symmetric encryption. Thus, it is rarely used to encrypt bulk data. 
@@ -35,6 +60,16 @@ Asymmetric encryption solves the Key Distribution Problem by using a **pair of k
 While encryption guarantees Confidentiality, **Hashing** guarantees **Integrity**. 
 
 A hashing algorithm is a one-way mathematical function that maps data of any arbitrary size to a fixed-size bit string (the hash value, or "digest"). 
+
+```mermaid
+graph LR
+    A[Arbitrary Length Input<br>e.g., 10TB Video or 10KB Text] --> B(Hashing Algorithm<br>e.g., SHA-256)
+    B --> C[Fixed-Size Output<br>e.g., 256-bit Digest]
+    
+    style A fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style B fill:#e1f5fe,stroke:#333,stroke-width:1px
+    style C fill:#e8f5e9,stroke:#333,stroke-width:1px
+```
 
 ### Core Attributes of an Ideal Hash Function:
 1. **Deterministic**: The same input will *always* result in the exact same output.
@@ -59,6 +94,21 @@ Symmetric and Asymmetric concepts unite under the **Public Key Infrastructure (P
 
 ### TLS/SSL (Transport Layer Security)
 TLS is the protocol that secures HTTP traffic into HTTPS. It uses a hybrid approach:
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Server
+    Note over Client,Server: Phase 1: Asymmetric Handshake (Authentication & Key Exchange)
+    Client->>Server: ClientHello (Supported Cipher Suites)
+    Server->>Client: ServerHello & Server Certificate (Public Key)
+    Client->>Server: Key Exchange Material (Encrypted with Server's Public Key)
+    Note over Client,Server: Both independently derive the same Symmetric Session Key
+    Note over Client,Server: Phase 2: Symmetric Encryption (Bulk Data Transfer)
+    Client->>Server: Encrypted HTTP Request (using Session Key)
+    Server->>Client: Encrypted HTTP Response (using Session Key)
+```
+
 1. The client connects and performs an **Asymmetric Handshake** (using RSA/ECC) to authenticate the server and securely agree upon a shared session key.
 2. The remaining communication transitions to **Symmetric Encryption** (using AES) because it is much faster for bulk data transfer.
 3. **Hashing** (SHA-256) is applied to individual data packets to ensure Integrity over the transmission.

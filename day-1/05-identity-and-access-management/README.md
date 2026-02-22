@@ -27,6 +27,20 @@ Managing 50 different passwords for 50 different work applications leads to pass
 - SSO allows a user to log in exactly *one* time using a strong primary credential (backed by MFA) to an Identity Provider (IdP) like Okta or Azure AD.
 - Once authenticated, the IdP generates a trusted token (via OIDC or SAML) and securely passes it to the various SaaS applications, logging the user in automatically without them ever typing a password into the target app.
 
+```mermaid
+sequenceDiagram
+    participant User
+    participant App as SaaS Application
+    participant IdP as Identity Provider (e.g., Okta/Azure AD)
+    
+    User->>App: 1. Attempt to access application
+    App->>IdP: 2. Redirect to IdP for authentication
+    IdP->>User: 3. Prompt for Credential & MFA
+    User->>IdP: 4. Provide Password + MFA Token
+    IdP->>App: 5. Send trusted token (SAML/OIDC)
+    App->>User: 6. Grant access to application
+```
+
 ---
 
 ## 2. Federated Identity Management
@@ -36,6 +50,27 @@ Managing 50 different passwords for 50 different work applications leads to pass
 -   **Use Case**: Suppose Company A completely acquires Company B. Company A uses Azure AD, and Company B uses Okta. Instead of migrating everyone immediately, the two companies can "federate" their Identity Providers. 
 -   **The Process**: Through cryptographic trust, Company A’s applications are configured to trust tokens issued by Company B’s IdP. A user from Company B can access Company A’s resources using their own standard login credentials.
 -   Common protocols enabling federation include **SAML (Security Assertion Markup Language)**, **OAuth 2.0**, and **OpenID Connect (OIDC)**.
+
+```mermaid
+graph LR
+    subgraph Company B
+        UserB[User B]
+        IdPB[Company B IdP]
+    end
+    
+    subgraph Company A
+        IdPA[Company A IdP]
+        AppA[Company A SaaS App]
+    end
+    
+    UserB -->|1. Request Access| AppA
+    AppA -->|2. Redirect| IdPA
+    IdPA -.->|3. Federated Trust| IdPB
+    IdPB -->|4. Authenticate| UserB
+    UserB -->|5. Credentials| IdPB
+    IdPB -->|6. Issue Token| IdPA
+    IdPA -->|7. Grant Access| AppA
+```
 
 ---
 
@@ -49,6 +84,19 @@ Not all identities are equal. While a standard user compromising their account m
 -   **Credential Vaulting**: Admins no longer know the passwords to the servers they manage. Passwords are super complex, auto-rotated daily, and locked in an encrypted vault.
 -   **Just-In-Time (JIT) Access**: "Standing privileges" are eliminated. Even if someone is an IT Admin, they have exactly zero admin rights at 10:00 AM. At 10:05 AM, they request JIT access to fix a server, it is approved, and at 11:05 AM, the access is automatically revoked.
 -   **Session Recording**: High-risk privileged sessions are video-recorded and keystroke-logged for auditing and forensics. If a breach occurs, investigators can play back exactly what the attacker typed.
+
+```mermaid
+stateDiagram-v2
+    [*] --> StandardUser: 10:00 AM
+    note right of StandardUser: Zero Admin Rights
+    StandardUser --> JITRequest: 10:05 AM
+    JITRequest --> Approval: Request Access
+    Approval --> AdminAccess: Approved
+    note right of AdminAccess: Elevated Privileges & Session Recorded
+    AdminAccess --> Revoked: 11:05 AM
+    note left of Revoked: Time Limit Expires
+    Revoked --> StandardUser: Auto-revoke
+```
 
 ---
 

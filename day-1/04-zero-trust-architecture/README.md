@@ -16,10 +16,36 @@ ZTA assumes that the network is *already* compromised. It removes implicit trust
 
 Instead, trust is continually evaluated on a per-session, per-request basis.
 
+```mermaid
+graph TD
+    subgraph "Castle and Moat"
+        Internet1(("Internet")) --> Firewall1{"Firewall"}
+        Firewall1 --> Intranet1["Internal Network (Implicit Trust)"]
+    end
+    
+    subgraph "Zero Trust Architecture"
+        Internet2(("Any Network")) --> Verify["Verify Identity & Context"]
+        Verify --> PEP{"Policy Enforcement Point"}
+        PEP --> AppA["Application A"]
+        PEP --> AppB["Application B"]
+        PEP --> DB[("Database")]
+    end
+```
+
 ### Core Principles of ZTA:
 1.  **Assume Breach**: Assume attackers are already present on the network and act accordingly.
 2.  **Verify Explicitly**: Authenticate and authorize based on all available data points (user identity, location, device health, service or workload, data classification, and anomalies).
 3.  **Use Least Privilege Access**: Limit user access with Just-In-Time (JIT) and Just-Enough-Access (JEA), risk-based adaptive policies, and data protection.
+
+```mermaid
+graph LR
+    User[User / Device] -->|1. Request Access| PolicyEngine{Policy Engine}
+    PolicyEngine -->|2a. Deny| Blocked[Access Denied]
+    PolicyEngine -->|2b. Allow| Resource[Resource / App]
+    
+    Context((Context & <br/> Identity Data)) --> PolicyEngine
+    ThreatIntel((Threat <br/> Intel)) --> PolicyEngine
+```
 
 ---
 
@@ -31,6 +57,21 @@ Micro-segmentation involves dividing the data center and cloud environments into
 
 -   **The Benefit**: It explicitly denies east-west (lateral) traffic by default. If a web server is compromised, the attacker cannot pivot from that web server to the database server unless a specific, authorized policy explicitly allows it.
 -   **Implementation**: Often achieved using Software-Defined Networking (SDN) and Next-Generation Firewalls (NGFW) to enforce strict, granular firewall rules securely around individual workloads.
+
+```mermaid
+graph TD
+    subgraph "Flat Network"
+        Web1("Web Server") <--> DB1[("Database")]
+        Web1 <--> App1("App Server")
+        App1 <--> DB1
+    end
+    
+    subgraph "Micro-segmented Network"
+        Web2("Web Server") -.->|"Default Deny"| DB2[("Database")]
+        Web2 -->|"Explicit Allow Policy"| App2("App Server")
+        App2 -->|"Explicit Allow Policy"| DB2
+    end
+```
 
 ---
 
@@ -45,6 +86,24 @@ In traditional systems, logging in once at 9:00 AM granted you a session token v
 -   If any of these parameters change mid-session (e.g., malware disables the EDR agent on the laptop), the ZTA policy engine immediately revokes access.
 -   Access to resources is dynamic and granularly authorized by a Policy Enforcement Point (PEP) rather than statically assigned.
 
+```mermaid
+sequenceDiagram
+    participant User
+    participant PolicyEngine as Policy Engine
+    participant PEP as Policy Enforcement Point
+    participant App as Application
+
+    User->>PEP: Request Access
+    PEP->>PolicyEngine: Evaluate Context (ID, Device, Location)
+    PolicyEngine-->>PEP: Allow Access
+    PEP->>App: Route Traffic
+    
+    Note over PolicyEngine: Continuous Monitoring
+    User->>User: Device assumes non-compliant state (e.g. EDR disabled)
+    PolicyEngine-->>PEP: Revoke Trust Signal
+    PEP-->>User: Terminate Session
+```
+
 ---
 
 ## 4. Implementing ZTA in Modern Enterprises
@@ -52,6 +111,18 @@ In traditional systems, logging in once at 9:00 AM granted you a session token v
 Implementing ZTA is a multi-year journey, not an overnight switch. 
 
 ### The CISA Zero Trust Maturity Model
+
+```mermaid
+graph LR
+    ID["Identity"] --> Policy("Zero Trust Policy Engine")
+    DEV["Devices"] --> Policy
+    NET["Networks"] --> Policy
+    APP["Apps & Workloads"] --> Policy
+    DAT["Data"] --> Policy
+    
+    Policy --> |"Continuous Authorization"| Resource{"Enterprise Resources"}
+```
+
 The US Cybersecurity and Infrastructure Security Agency (CISA) outlines five pillars for ZTA maturity:
 1.  **Identity**: Transitioning from passwords to phishing-resistant MFA and strong identity providers (IdP).
 2.  **Devices**: Tracking all devices (inventories) and enforcing endpoint compliance before granting access.
