@@ -1,10 +1,15 @@
-# Modern Cybersecurity Fundamentals
+# Modern Cybersecurity Fundamentals Day 1
 
-This course is a live event authored by Omar Santos.
+This course is a live event authored by [Omar Santos](https://www.linkedin.com/in/santosomar/).
 *Security Principles, Incident Response, Ethical Hacking, AI Security, Cloud, IoT, and more*
 
 Cybersecurity has never been more important. Cyberattacks are on the rise and demand for safe and secure data means that both companies and professionals need to keep their information secure. This in-depth 2-day training course by Omar Santos gives you the core skills you need to understand the essentials of cybersecurity fundamentals and get you started on your cyber career.
 
+## Important Resources
+- The Art of Hacking GitHub Repository: https://hackerrepo.org
+- Important Cybersecurity Resources in O'Reilly: https://hackertraining.org
+
+## Course Outline
 - **Day 1** — You will dive right into core topics. Learn the basics, focusing on security concepts and exploring the core cybersecurity focus areas, along with incident response, threat hunting, and digital forensics.
 - **Day 2** — Now you’ll take your skills to the next level by exploring security operations, access control, ethical hacking, AI security, adversarial emulation, and security management. You will then explore cloud security, Internet of Things (IoT) security, and mobile device security. You will learn the importance of a secure development lifecycle (SDLC) before delving into how cyber security is affecting software development (including DevOps and cloud computing), as well as the concept of DevSecOps. You will be able to discuss various security technologies, including anti-malware, firewalls, intrusion detection systems, sniffers, ethical hacking tools, active defense, and threat hunting.
 
