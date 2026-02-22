@@ -1,6 +1,5 @@
 # Section 05: Identity and Access Management (IAM) Deep Dive
 
-*Estimated time: 45 minutes*
 
 In the modern enterprise, the corporate perimeter has dissolved. Employees work from coffee shops on personal devices, accessing data hosted in third-party SaaS clouds. Because the traditional network perimeter is gone, **Identity is the new perimeter.**
 

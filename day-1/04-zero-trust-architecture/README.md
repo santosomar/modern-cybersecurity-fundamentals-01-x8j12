@@ -1,7 +1,5 @@
 # Section 04: Zero Trust Architecture (ZTA)
 
-*Estimated time: 45 minutes*
-
 Historically, network security operated on the "Castle and Moat" model. Organizations spent millions building a hardened perimeter (the moat) using firewalls and VPNs. Everything outside the perimeter was considered untrusted, but anything *inside* the network was implicitly trusted. 
 
 This model failed. Once an attacker (or a malicious insider) bypassed the perimeter, they had free rein to move laterally across the entire network unhindered. Zero Trust is the modern answer to this problem.

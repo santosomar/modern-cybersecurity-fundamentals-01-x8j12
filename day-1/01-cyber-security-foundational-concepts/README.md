@@ -1,7 +1,5 @@
 # Section 01: Cyber Security Foundational Concepts
 
-*Estimated time: 60 minutes*
-
 This section provides a deep dive into the absolute essentials of cybersecurity. Before exploring specific tools, technologies, and practices, it is crucial to understand the foundational principles that justify and secure modern environments.
 
 ---

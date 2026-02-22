@@ -5,6 +5,8 @@ This course is a live event authored by [Omar Santos](https://www.linkedin.com/i
 
 Cybersecurity has never been more important. Cyberattacks are on the rise and demand for safe and secure data means that both companies and professionals need to keep their information secure. This in-depth 2-day training course by Omar Santos gives you the core skills you need to understand the essentials of cybersecurity fundamentals and get you started on your cyber career.
 
+I have numerous cybersecurity and AI labs that I have created over the years. You can find them in my [The Art of Hacking GitHub Repository](https://hackerrepo.org), [WebSploit Labs](https://websploit.org/) and [Hacking Scenarios](https://hackingscenarios.com/). I add more of them on a regular basis so check those resources often.
+
 ## Important Resources
 - The Art of Hacking GitHub Repository: https://hackerrepo.org
 - Important Cybersecurity Resources in O'Reilly: https://hackertraining.org

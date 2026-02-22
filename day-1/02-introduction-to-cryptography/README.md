@@ -1,7 +1,5 @@
 # Section 02: Introduction to Cryptography
 
-*Estimated time: 75 minutes*
-
 Cryptography is the mathematical foundation that guarantees the Confidentiality, Integrity, and non-repudiation of our data. It is the science of secure communication in the presence of adversarial behavior. Understanding cryptography is necessary to comprehend how data is secured at rest, in transit, and in use.
 
 ---

@@ -1,7 +1,5 @@
 # Section 06: Social Engineering & Phishing
 
-*Estimated time: 35 minutes*
-
 Despite all the advanced firewalls, AI-driven EDRs, and Zero Trust Architectures implemented by an organization, the weakest link in any security chain is almost always the human element.
 
 **Social Engineering** is the art of manipulating people so they give up confidential information or perform actions that compromise the security of an organization. 

@@ -1,7 +1,5 @@
 # Section 03: Introduction to Digital Forensics and Incident Response (DFIR)
 
-*Estimated time: 75 minutes*
-
 The reality of modern cybersecurity is that preventative controls eventually fail. How an organization detects, responds to, and recovers from a cyberattack is just as critical as its attempts to prevent it. This field is widely known as Digital Forensics and Incident Response (DFIR).
 
 ---
