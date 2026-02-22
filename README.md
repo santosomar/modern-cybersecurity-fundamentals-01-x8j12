@@ -166,3 +166,122 @@ Course participants should have a basic understanding of computing and networkin
 - Third-Party Vendor Risk Management
 
 *QA (10 minutes)*
+
+
+
+## Foundational Cybersecurity Resources in O'Reilly
+
+This section provides a curated list of resources that delve into foundational cybersecurity concepts, frequently explored in my O'Reilly training sessions and other educational offerings.
+
+## Live Training
+**Upcoming Live Cybersecurity and AI Training in O'Reilly:** [Register before it is too late](https://learning.oreilly.com/search/?q=omar%20santos&type=live-course&rows=100&language_with_transcripts=en) (free with O'Reilly Subscription)
+
+## Reading List
+
+Despite the rapidly evolving landscape of AI and technology, these books offer a comprehensive roadmap for understanding the intersection of these technologies with cybersecurity:
+
+- **[Redefining Hacking](https://learning.oreilly.com/library/view/redefining-hacking-a/9780138363635/)**
+A Comprehensive Guide to Red Teaming and Bug Bounty Hunting in an AI-driven World [Available on O'Reilly](https://learning.oreilly.com/library/view/redefining-hacking-a/9780138363635/)
+
+- **[AI-Powered Digital Cyber Resilience](https://www.oreilly.com/library/view/ai-powered-digital-cyber/9780135408599/)**
+  A practical guide to building intelligent, AI-powered cyber defenses in todays fast-evolving threat landscape. [Available on O'Reilly](https://www.oreilly.com/library/view/ai-powered-digital-cyber/9780135408599).
+
+- **[Developing Cybersecurity Programs and Policies in an AI-Driven World](https://learning.oreilly.com/library/view/developing-cybersecurity-programs/9780138073992)**  
+  Explore strategies for creating robust cybersecurity frameworks in an AI-centric environment. [Available on O'Reilly](https://learning.oreilly.com/library/view/developing-cybersecurity-programs/9780138073992)
+
+- **[Beyond the Algorithm: AI, Security, Privacy, and Ethics](https://learning.oreilly.com/library/view/beyond-the-algorithm/9780138268442)**  
+  Gain insights into the ethical and security challenges posed by AI technologies. [Available on O'Reilly](https://learning.oreilly.com/library/view/beyond-the-algorithm/9780138268442)
+
+- **[The AI Revolution in Networking, Cybersecurity, and Emerging Technologies](https://learning.oreilly.com/library/view/the-ai-revolution/9780138293703)** Understand how AI is transforming networking and cybersecurity landscape.  
+[Available on O'Reilly](https://learning.oreilly.com/library/view/the-ai-revolution/9780138293703)
+
+## Video Courses
+
+Enhance your practical skills with these video courses designed to deepen your understanding of cybersecurity:
+
+- **[Building the Ultimate Cybersecurity Lab and Cyber Range](https://learning.oreilly.com/course/building-the-ultimate/9780138319090/) (video)** [Available on O'Reilly](https://learning.oreilly.com/course/building-the-ultimate/9780138319090/)
+
+---
+
+- **[Build Your Own AI Lab](https://learning.oreilly.com/course/build-your-own/9780135439616) (video)** Hands-on guide to home and cloud-based AI labs. Learn to set up and optimize labs to research and experiment in a secure environment. [Available on O'Reilly](https://learning.oreilly.com/course/build-your-own/9780135439616)
+
+---
+
+- **[Defending and Deploying AI](https://www.oreilly.com/videos/defending-and-deploying/9780135463727/) (video)**  This course provides a comprehensive, hands-on journey into modern AI applications for technology and security professionals, covering AI-enabled programming, networking, and cybersecurity to help learners master AI tools for dynamic information retrieval, automation, and operational efficiency. It dives deeply into securing generative AI, addressing critical topics such as LLM security, prompt injection risks, and red-teaming AI models. Participants also learn how to build secure, cost-effective AI labs at home or in the cloud, with practical guidance on hardware and software choices. Finally, the course explores AI agents and agentic RAG for cybersecurity, demonstrating how large language models can be applied to both offensive and defensive operations through real-world examples and hands-on labs. [Available on O'Reilly](https://www.oreilly.com/videos/defending-and-deploying/9780135463727/)
+
+---
+
+- **[AI-Enabled Programming, Networking, and Cybersecurity](https://learning.oreilly.com/course/ai-enabled-programming-networking/9780135402696/)**
+Learn to use AI for cybersecurity, networking, and programming tasks.
+Use examples of practical, hands-on activities and demos that emphasize real-world tasks.
+Implement AI tools as a programmer, developer, networking, or security professional.
+[Available on O'Reilly](https://learning.oreilly.com/course/ai-enabled-programming-networking/9780135402696/)
+ 
+---
+
+- **[Securing Generative AI](https://learning.oreilly.com/course/securing-generative-ai/9780135401804/)**
+Explore security for deploying and developing AI applications, RAG, agents, and other AI implementations
+Learn hands-on with practical skills of real-life AI and machine learning cases
+Incorporate security at every stage of AI development, deployment, and operation
+[Available on O'Reilly](https://learning.oreilly.com/course/securing-generative-ai/9780135401804/)
+
+---
+
+
+- **[Practical Cybersecurity Fundamentals](https://learning.oreilly.com/course/practical-cybersecurity-fundamentals/9780138037550/)**  
+  A comprehensive video course covering essential cybersecurity principles.  [Available on O'Reilly](https://learning.oreilly.com/course/practical-cybersecurity-fundamentals/9780138037550/)
+ 
+---
+
+- **[The Art of Hacking](https://theartofhacking.org)**  
+  A series of video courses offering over 26 hours of training in ethical hacking and penetration testing techniques. Ideal for those preparing for certifications like OSCP or CEH.  
+  [Visit The Art of Hacking](https://theartofhacking.org)
+
+---
+
+
+## **Certification Related**
+
+
+- **CompTIA PenTest+ PT0-002 Cert Guide, 2nd Edition** [Available on O'Reilly](https://learning.oreilly.com/library/view/comptia-pentest-pt0-002/9780137566204/)
+
+---
+
+- **Certified Ethical Hacker (CEH), Latest Edition**
+  -  Very comprehensive! Over 19 hours! [Available on O'Reilly](https://learning.oreilly.com/course/certified-ethical-hacker/9780135395646/)
+
+---
+
+- **Certified in Cybersecurity - CC (ISC)²** [Available on O'Reilly](https://learning.oreilly.com/course/certified-in-cybersecurity/9780138230364/)
+
+---
+
+
+- **CCNP and CCIE Security Core SCOR 350-701 Official Cert Guide, 2nd Edition** [Available on O'Reilly](https://learning.oreilly.com/library/view/ccnp-and-ccie/9780138221287/)
+
+---
+
+
+- **CEH Certified Ethical Hacker Cert Guide** [Available on O'Reilly](https://learning.oreilly.com/library/view/ceh-certified-ethical/9780137489930/)
+
+---
+
+
+## Additional Resources
+
+- **Hacking Scenarios (Labs) in O'Reilly**: No need to install any software in your system. These are cloud based labs in O'Reilly
+  - [https://hackingscenarios.com](https://hackingscenarios.com)
+    
+- **My Personal Blog**: Stay updated with my latest thoughts and insights on cybersecurity trends and techniques. [Visit Blog](https://becomingahacker.org)
+
+- **My Cisco Blog**: [Access Blog](https://blogs.cisco.com/author/omarsantos)
+
+- **GitHub Repository**: Access a wealth of resources and tools for hackers and cybersecurity enthusiasts.  
+  - [Visit GitHub Repo](https://hackerrepo.org)
+
+- **WebSploit Labs**: Engage with interactive labs to practice and refine your hacking skills. [Visit WebSploit Labs](https://websploit.org)
+
+- **NetAcad Ethical Hacker Free Course**: [Available (free) on NetAcad Skills for All](https://www.netacad.com/courses/ethical-hacker?courseLang=en-US)
+
+These resources are designed to provide a solid foundation in cybersecurity concepts while also exploring the implications of emerging technologies like AI.
+
